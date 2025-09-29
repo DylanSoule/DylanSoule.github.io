@@ -1,1 +1,1 @@
-## [My personal website](http//:DylanSoule.github.io)
+## [My personal website](http://DylanSoule.github.io)
