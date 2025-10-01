@@ -3,12 +3,14 @@
     <style>
         body {
             background-color: rgb(199, 199, 199);
+            font-family: sans-serif;
         }
         h1{text-align:center;}
         .button-class {
 			background-color: #4CAF50;
-			border: none;
-			color: white;
+			border: solid;
+			border-width: 5px;
+			border-color: black;
 			padding: 50px 50px;
 			text-align: center;
 			text-decoration: none;
@@ -17,10 +19,12 @@
 			margin: 5px 50px;
 			cursor: pointer;
 			border-radius: 4px;
+            width: 25%;
 		}
-        #about {
-            margin-left:280px;
+        a:visited {
+            color: white;
         }
+        
     </style>
     <head>
         <title>
@@ -44,14 +48,16 @@
         <h2 style="text-align: center;">
             Pages:
         </h2>
-        <a href="about_me.html" class="button-class" id="about">
-            About Me
-        </a>
-        <a href="other_stuff.html" class="button-class">
-            Other Stuff
-        </a>
-        <a href="cool_stuff.html" class="button-class">
-            Cool Linkies
-        </a>
+        <div style="display: flex; justify-content: center;">
+            <a href="about_me.html" class="button-class">
+                About Me
+            </a>
+            <a href="other_stuff.html" class="button-class">
+                Other Stuff
+            </a>
+            <a href="cool_stuff.html" class="button-class">
+                Cool Linkies
+            </a>
+        </div>
     </body>
 </html>

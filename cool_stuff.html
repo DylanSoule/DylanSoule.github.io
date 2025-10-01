@@ -3,35 +3,40 @@
     <style>
         body {
             background-color: rgb(199, 199, 199);
+			font-family: sans-serif;
         }
         h1{text-align:center;}
         .gobackbutton-class {
 			background-color: #af4ca7;
-			border: none;
+			border: solid;
+			border-width: 5px;
+			border-color: black;
 			color: white;
 			padding: 50px 50px;
 			text-align: center;
 			text-decoration: none;
 			display: inline-block;
 			font-size: 100px;
-			margin: 5px 50px;
+			margin: 50px 50px;
 			cursor: pointer;
 			border-radius: 4px;
-            margin-left:1000px
+            margin: auto;
         }
 		.button-class {
 			background-color: #4caf51;
-			border: none;
+			border: solid;
+			border-width: 5px;
+			border-color: black;
 			color: white;
 			padding: 50px 50px;
 			text-align: center;
 			text-decoration: none;
 			display: inline-block;
 			font-size: 100px;
-			margin: 5px 50px;
+			margin: 500px 50px;
 			cursor: pointer;
 			border-radius: 4px;
-            margin-left: 700px
+            margin: auto;
         }
     </style>
 	<body>
@@ -40,17 +45,28 @@
             Cool Links Below
             <img src="favicon.png" alt="Title border image" width="200px" height="200px" style="vertical-align: middle;">
         </h1>
-		<a href="https://neal.fun/" class="button-class" id="about" target="_blank">
-            Cool Games and Stuff
-        </a>
-        <a href="https://en.wikipedia.org/wiki/Death_from_laughter" class="button-class" target="_blank">
-            Learn Something New
-        </a>
-        <a href="https://puginarug.com/" class="button-class" target="_blank">
-			THE BEST SITE EVER
-        </a>
-		<a href="index.html" class="gobackbutton-class">
-            Go Back
-        </a>
+		<div style="display: flex; justify-content: center;">
+			<a href="https://neal.fun/" class="button-class" id="about" target="_blank">
+				Cool Games and Stuff
+			</a>
+		</div>
+		<br>
+		<div style="display: flex; justify-content: center;">
+			<a href="https://en.wikipedia.org/wiki/Death_from_laughter" class="button-class" target="_blank">
+				Learn Something New
+			</a>
+		</div>
+		<br>
+		<div style="display: flex; justify-content: center;">
+			<a href="https://puginarug.com/" class="button-class" target="_blank">
+				THE BEST SITE EVER
+			</a>
+		</div>
+		<br>
+		<div style="display: flex; justify-content: center;">
+			<a href="index.html" class="gobackbutton-class">
+				Go Back
+			</a>
+		</div>
 	</body>
 </html>
