@@ -1,32 +1,56 @@
 <!DOCTYPE html>
 <html>
-    <style>
-        body {
-            background-color: rgb(199, 199, 199);
-            font-family: sans-serif;
-        }
-        h1{text-align:center;}
-        .button-class {
-			background-color: #4CAF50;
-			border: solid;
-			border-width: 5px;
-			border-color: black;
-			padding: 50px 50px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 100px;
-			margin: 5px 50px;
-			cursor: pointer;
-			border-radius: 4px;
-            width: 25%;
-		}
-        a:visited {
-            color: white;
-        }
-        
-    </style>
     <head>
+        <style>
+            /* Page base styles moved into the head for valid HTML and predictable cascade */
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                background-color: rgb(199, 199, 199);
+                font-family: sans-serif;
+            }
+            h1{text-align:center;}
+            .button-class {
+                background-color: #4CAF50;
+                border: solid;
+                border-width: 5px;
+                border-color: black;
+                padding: 50px 50px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 100px;
+                margin: 5px 50px;
+                cursor: pointer;
+                border-radius: 4px;
+                width: 25%;
+            } 
+
+            .button-class-2 {
+                background-color: #4CAF50;
+                border: solid;
+                border-width: 5px;
+                border-color: black;
+                border-width: 5px;
+                border-radius: 4px;
+                padding: 50px 50px;
+                font-size: 50px;
+                margin: 5px 50px;
+                width: 33%;
+            }
+
+            a:visited {
+                color: white;
+            }
+            
+            /* Make .light-mode explicit and strong so it overrides other rules */
+            html.light-mode, body.light-mode {
+                background-color: rgb(22, 223, 223) !important;
+                color: rgb(0, 0, 0) !important;
+            }
+        </style>
+    </head>
         <title>
             Dylan Soule's Personal Website
         </title>
@@ -59,5 +83,31 @@
                 Cool Linkies
             </a>
         </div>
+        <div style="display: flex; justify-content: center;">
+            <button onclick = 'toggleDarkMode()' class="button-class-2" style="color: white;">Change Background Color</button>
+            <button onclick = 'getFortune()' class="button-class-2" style="color: white;">Get your fortune</button>
+        </div>
+
+        <script>
+            function toggleDarkMode() {
+                document.body.classList.toggle('light-mode');
+            }
+            function getFortune() {
+                // create a list of random fortunes
+                const fortunes = [
+                    "A pleasant surprise is waiting for you.",
+                    "Adventure awaits you around the next corner.",
+                    "Your hard work will pay off today.",
+                    "You will find a hidden treasure today.",
+                    "Your creativity will shine bright today."
+                ];
+                
+                // select a random value from the `fortunes` array
+                const randomIndex = Math.floor(Math.random() * fortunes.length);
+                
+                // post an alert that displays the random fortune
+                alert(fortunes[randomIndex]);
+            }
+        </script>
     </body>
 </html>
