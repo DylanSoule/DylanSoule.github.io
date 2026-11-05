@@ -11,96 +11,30 @@ body {
     background-color: #f8f9fa;
 }
 
-/* 2. Navigation Bar */
-.top-bar {
-    background-color: #1e293b;
-    padding: 1rem 2rem;
+.about-header {
+    background: #3c096c;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-nav .logo {
-    color: #fff;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-}
-nav a {
-    color: #cbd5e1;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
-}
-nav a:hover {
-    color: #38bdf8;
-}
-
-.floating-nav {
-    position: fixed;
-    bottom: max(20px, env(safe-area-inset-bottom));
-    left: 50%;
-    transform: translateX(-50%);
-
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    padding: 0px;
-    border-radius: 20px;
-
-    background: rgba(25, 25, 35, 0.85);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
-
-    z-index: 1000;
-}
-
-.nav-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-
-    color: white;
-    background: transparent;
-
-    cursor: pointer;
-    font-size: 14px;
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        color 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-.nav-item:hover {
-    background: rgba(224, 170, 255, 0.25);
-}
-
-.nav-item.active {
-    background: #240046;
-    color: white;
-    box-shadow: 0 4px 15px rgba(118, 85, 232, 0.4);
-}
-
-/* 3. Hero Header */
-header {
-    background: linear-gradient(135deg, #0f172a, #1e293b);
     color: #fff;
     padding: 4rem 2rem;
-    text-align: center;
+    width: 100%;
 }
+
+.self-portrait {
+  max-width: 30%;
+  flex-shrink: 0;
+}
+
+.self-portrait img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.about-header-text {
+  flex: 1;
+  text-align: center;
+}
+
 header h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
@@ -108,6 +42,62 @@ header h1 {
 header p {
     color: #94a3b8;
     font-size: 1.1rem;
+}
+
+
+/* Navigation container */
+.floating-nav {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 10px;
+
+    display: flex;
+    align-items: center;
+
+    width: 300px;
+    padding: 2px;
+
+    background: #393840;
+    border: 1px solid #5b5963;
+    border-radius: 30px;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+}
+
+/* Navigation links */
+.nav-item {
+    flex: 1;
+    padding: 9px 20px;
+
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+
+    color: #ffffff;
+    font-size: 14px;
+
+    border-radius: 20px;
+    background: transparent;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* Hover effect */
+.nav-item:not(.active):hover {
+    background: rgba(224, 170, 255, 0.25);
+}
+
+/* Active page */
+.nav-item.active {
+    background: #240046;
+    color: white;
+    box-shadow: 0 4px 15px rgba(118, 85, 232, 0.4);
 }
 
 /* 4. Main Content Sections */

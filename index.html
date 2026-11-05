@@ -3,42 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dylan Soule | Personal Portfolio</title>
+  <title>Dylan Soule | About</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <nav class="top-bar">
-    <div class="logo">Dylan Soule</div>
-    <!-- <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul> -->
-  </nav>
-
-  <!-- Hero Header -->
-  <header>
-    <h1>Make this look cool </h1>
-    <p></p>
+  <!-- Header -->
+  <header class="about-header">
+    <div class="self-portrait">
+      <img src="self-portrait.jpg" alt="Self Portrait Image">
+    </div>
+    <div class="about-header-text">
+      <h1>Make this look cool </h1>
+      <p>Yo dis me</p>
+    </div>
   </header>
 
-  <nav class="floating-nav">
-    <button class="nav-item active" role="tab">
-        <span class="nav-label">About</span>
-    </button>
-
-    <button class="nav-item" role="tab">
-        <span class="nav-label">Projects</span>
-    </button>
-
-    <button class="nav-item" role="tab">
-        <span class="nav-label">Contact</span>
-    </button>
-  </nav>
-
-  <main>
+  <main class="page-content">
     <!-- About Section -->
     <section id="about">
       <h2>About Me</h2>
@@ -50,10 +31,6 @@
     <!-- Projects Section -->
     <section id="projects">
       <h2>Featured Projects</h2>
-      <div class="project-card">
-        <h3>Solar System Interactive Quiz</h3>
-        <p>A web-based astronomy game built using JavaScript to teach elementary students about planets.</p>
-      </div>
     </section>
 
     <!-- Contact Section -->
@@ -63,10 +40,16 @@
     </section>
   </main>
 
+  <nav class="floating-nav">
+      <a href="index.html" class="nav-item active">About</a>
+      <a href="portfolio.html" class="nav-item">Portfolio</a>
+      <a href="contact.html" class="nav-item">Contact</a>
+  </nav>
+
   <footer>
-    <p>© 2026 Alex Rivera. Built with HTML & CSS.</p>
+    <!-- <p>© 2026 Alex Rivera. Built with HTML & CSS.</p> -->
   </footer>
 
-  <script src="index.js"></script>
+  <!-- <script src="index.js"></script> -->
 </body>
 </html>
