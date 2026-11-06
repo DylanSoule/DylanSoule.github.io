@@ -1,0 +1,15 @@
+.self-portrait {
+  max-width: 30%;
+  flex-shrink: 0;
+}
+
+.self-portrait img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.about-header-text {
+  flex: 1;
+  text-align: center;
+}
