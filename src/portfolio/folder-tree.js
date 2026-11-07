@@ -54,6 +54,9 @@ const directoryData = [
 ];
 
 
-function TreeNode({ item }) {
+function makeTreeNode(item) {
     
+    const list = Document.createElement('li')
+
+    const row = Document.createElement('div')
 }
