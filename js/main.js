@@ -1,5 +1,3 @@
-import "../css/main.css";
-import "../css/navigation.css";
 // General JS for whole site
 
 const portfolioPage = document.querySelector("#portfolio-page");

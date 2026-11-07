@@ -1,5 +1,3 @@
-import "../../css/portfolio.css";
-
 import {
   createIcons,
   Download,
