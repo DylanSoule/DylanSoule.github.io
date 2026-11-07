@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dylan Soule | Personal Portfolio</title>
-  <link rel="stylesheet" href="src/css/style.css">
-  <link rel="stylesheet" href="src/css/portfolio.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dylan Soule | Personal Portfolio</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/portfolio.css" />
+    <script defer type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <main id="portfolio-page">
+      <header class="portfolio-header">
+        <div class="portfolio-title">
+          <h1>My Portfolio</h1>
+          <p>Please explore below by expanding folders</p>
+        </div>
+      </header>
 
-  <script defer src="https://unpkg.com/lucide@latest"></script>
-  <script defer type="module" src="src/main/main.js"></script>
-</head>
-<header class="portfolio-header">
-  <div class="portfolio-title">
-    <h1>My Portfolio</h1>
-    <p>Please explore below by expanding folders</p>
-  </div>
-</header>
-<body>
-    <nav class="floating-nav">
-      <a href="index.html" class="nav-item">About</a>
-      <a href="portfolio.html" class="nav-item active">Portfolio</a>
-      <a href="contact.html" class="nav-item">Contact</a>
-  </nav>
-  <section class="directory portfolio">
-    <h2>Explore</h2>
+      <nav class="floating-nav">
+        <a href="index.html" class="nav-item">About</a>
+        <a href="portfolio.html" class="nav-item active">Portfolio</a>
+        <a href="contact.html" class="nav-item">Contact</a>
+      </nav>
 
-    <div id="folder-tree"></div>
-  </section>
-</body>
+      <section class="directory portfolio">
+        <h2>Explore</h2>
+        <ul id="folder-tree"></ul>
+      </section>
+    </main>
+  </body>
 </html>
