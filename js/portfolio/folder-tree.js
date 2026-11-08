@@ -4,6 +4,8 @@ import {
   FileText,
   FolderClosed,
   FolderOpen,
+  BookOpenText,
+  ChevronRight,
 } from "lucide";
 
 const blowupTemplatePaths = {
@@ -86,33 +88,19 @@ const directoryData = [
 ];
 
 
-function setIcon(iconEl, item, isOpen = false) {
-  if (item.type === "directory") {
-    iconEl.setAttribute("data-lucide", isOpen ? "folder-open" : "folder-closed");
-    return;
-  }
-
-  if (item.type === "download") {
-    iconEl.setAttribute("data-lucide", "download");
-    return;
-  }
-
-  iconEl.setAttribute("data-lucide", "file-text");
-}
-
 function getPanelElements() {
   const panel = document.getElementById("blowup-panel");
-  const backdrop = document.getElementById("blowup-backdrop");
   const title = document.getElementById("blowup-title");
   const content = document.getElementById("blowup-content");
-  const closeButton = document.getElementById("blowup-close");
+  const header = document.getElementById("blowup-panel-header")
 
-  if (!panel || !backdrop || !title || !content || !closeButton) {
+  if (!panel || !title || !content || !header) {
     return null;
   }
 
-  return { panel, backdrop, title, content, closeButton };
+  return { panel, title, content, header };
 }
+
 
 async function loadBlowupHtml(itemId) {
   if (blowupContentCache.has(itemId)) {
@@ -134,6 +122,7 @@ async function loadBlowupHtml(itemId) {
   return html;
 }
 
+
 async function openPanel(item, row) {
   const panelElements = getPanelElements();
   if (!panelElements) {
@@ -141,10 +130,12 @@ async function openPanel(item, row) {
   }
 
   lastFocusedRow = row;
-  panelElements.title.textContent = item.name;
+  panelElements.title.innerHTML = `
+    <i data-lucide="chevron-right" class="chevron"></i> 
+    <i data-lucide="book-open-text"></i> ` + item.name;
+  createIcons({ icons: { ChevronRight, BookOpenText } });
   panelElements.content.innerHTML = "<p>Loading details...</p>";
 
-  panelElements.backdrop.hidden = false;
   panelElements.panel.hidden = false;
   panelElements.panel.setAttribute("aria-hidden", "false");
   document.body.classList.add("panel-open");
@@ -158,8 +149,8 @@ async function openPanel(item, row) {
     console.error(error);
   }
 
-  panelElements.closeButton.focus();
 }
+
 
 function closePanel() {
   const panelElements = getPanelElements();
@@ -168,7 +159,6 @@ function closePanel() {
   }
 
   panelElements.panel.hidden = true;
-  panelElements.backdrop.hidden = true;
   panelElements.panel.setAttribute("aria-hidden", "true");
   document.body.classList.remove("panel-open");
 
@@ -177,15 +167,14 @@ function closePanel() {
   }
 }
 
+
 function setupPanelEvents() {
   const panelElements = getPanelElements();
   if (!panelElements || panelElements.panel.dataset.eventsBound === "true") {
     return;
   }
 
-  panelElements.closeButton.addEventListener("click", closePanel);
-  panelElements.backdrop.addEventListener("click", closePanel);
-
+  panelElements.header.addEventListener("click", closePanel);
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !panelElements.panel.hidden) {
       closePanel();
@@ -196,18 +185,40 @@ function setupPanelEvents() {
 }
 
 
+function setIcon(iconEl, item, isOpen = false) {
+  if (item.type === "directory") {
+    iconEl.setAttribute("data-lucide", isOpen ? "folder-open" : "folder-closed");
+    return;
+  }
+
+  if (item.type === "download") {
+    iconEl.setAttribute("data-lucide", "download");
+    return;
+  }
+
+  iconEl.setAttribute("data-lucide", "file-text");
+}
+
+
 function makeTreeNode(item) {
   const li = document.createElement("li");
   const row = document.createElement("div");
   row.classList.add("tree-row");
+  row.setAttribute("aria-expanded", "false");
+
+  const chevron = document.createElement("i");
+  chevron.setAttribute("data-lucide","chevron-right");
+  chevron.classList.add("chevron");
 
   const icon = document.createElement("i");
   setIcon(icon, item, false);
+  icon.classList.add("folder")
 
   const label = document.createElement("span");
   label.textContent = item.name;
 
   row.tabIndex = 0;
+  row.appendChild(chevron);
   row.appendChild(icon);
   row.appendChild(label);
   li.appendChild(row);
@@ -232,7 +243,9 @@ function makeTreeNode(item) {
       childList.hidden = !shouldOpen;
       row.classList.toggle("is-open", shouldOpen);
 
-      const liveIcon = row.querySelector("[data-lucide]");
+      row.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
+
+      const liveIcon = row.querySelector(".folder");
       if (liveIcon) {
         liveIcon.setAttribute(
           "data-lucide",
@@ -265,6 +278,12 @@ export function initializeTree() {
   });
 
   createIcons({
-    icons: { FolderClosed, FolderOpen, FileText, Download },
+    icons: { 
+      FolderClosed, 
+      FolderOpen,
+      FileText, 
+      Download,
+      ChevronRight
+    },
   });
 }

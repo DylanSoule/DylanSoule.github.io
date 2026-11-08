@@ -43,20 +43,24 @@ body {
     width: 18px;
     height: 18px;
     flex-shrink: 0;
-    color: purple;
+    color: #ff8fff;
+}
+
+.chevron {
+  transition: transform 250ms ease;
+  transform-origin: center;
+}
+
+.tree-row[aria-expanded="true"] .chevron {
+  transform: rotate(90deg);
+}
+
+.blowup-panel:not([hidden]) #blowup-title .chevron {
+    transform: rotate(90deg);
 }
 
 body.panel-open {
   overflow: hidden;
-}
-
-.blowup-backdrop {
-  position: fixed;
-  inset: 0;
-  border: 0;
-  background: rgba(10, 18, 24, 0.55);
-  cursor: pointer;
-  z-index: 100;
 }
 
 .blowup-panel {
@@ -66,7 +70,7 @@ body.panel-open {
   height: 100dvh;
   display: flex;
   flex-direction: column;
-  background: #ffffff;
+  background: #2c2d2d;
   border: 0;
   box-shadow: none;
   z-index: 101;
@@ -78,13 +82,9 @@ body.panel-open {
 }
 
 .blowup-panel-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  background: #f8fafc;
+  position: fixed;
+  padding: 1rem;
+  cursor: pointer;
 }
 
 .blowup-panel-header h2 {
@@ -92,17 +92,10 @@ body.panel-open {
   font-size: clamp(1.15rem, 2.2vw, 1.5rem);
 }
 
-.blowup-close {
-  border: 1px solid rgba(15, 23, 42, 0.3);
-  background: #ffffff;
-  color: #0f172a;
-  padding: 0.5rem 0.8rem;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.blowup-close:hover {
-  background: #f1f5f9;
+.blowup-panel-header svg{
+  display: inline-block;
+  vertical-align: -0.15em;
+  color: #ff8fff;
 }
 
 .blowup-content {
@@ -124,30 +117,4 @@ body.panel-open {
   .blowup-content {
     padding: 1rem;
   }
-}
-
-.blowup-article {
-  max-width: 70ch;
-  margin: 0 auto;
-}
-
-.blowup-article header p:first-child {
-  margin: 0;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #475569;
-}
-
-.blowup-article h3 {
-  margin: 0.35rem 0 0.8rem;
-  font-size: clamp(1.3rem, 2.4vw, 1.8rem);
-}
-
-.blowup-article h4 {
-  margin-bottom: 0.35rem;
-}
-
-.blowup-article section + section {
-  margin-top: 1rem;
 }

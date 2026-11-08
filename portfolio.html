@@ -29,14 +29,6 @@
       </section>
     </main>
 
-    <button
-      id="blowup-backdrop"
-      class="blowup-backdrop"
-      type="button"
-      aria-label="Close details panel"
-      hidden
-    ></button>
-
     <!-- Side panel shell; content is injected into #blowup-content -->
     <aside
       id="blowup-panel"
@@ -47,12 +39,9 @@
       aria-hidden="true"
       hidden
     >
-      <header class="blowup-panel-header">
+      <div id="blowup-panel-header" class="blowup-panel-header">
         <h2 id="blowup-title">Details</h2>
-        <button id="blowup-close" class="blowup-close" type="button" aria-label="Close details panel">
-          Close
-        </button>
-      </header>
+      </div>
 
       <div id="blowup-content" class="blowup-content">
         <p>Select an item from the folder tree to view details.</p>
