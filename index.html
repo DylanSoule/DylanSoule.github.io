@@ -6,6 +6,7 @@
   <title>Dylan Soule | About</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/portfolio.css">
 
   <script defer type="module" src="/js/main.js"></script>
 </head>
@@ -31,16 +32,35 @@
       </p>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-      <h2>Featured Projects</h2>
-    </section>
+    <!-- Portfolio -->
+     <section class="directory portfolio">
+        <h2>Explore</h2>
+        <ul id="folder-tree"></ul>
+      </section>
 
     <!-- Contact Section -->
     <section id="contact">
       <h2>Get in Touch</h2>
       <p>Feel free to reach out via school email or check out my work online!</p>
     </section>
+
+    <aside
+      id="blowup-panel"
+      class="blowup-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="blowup-title"
+      aria-hidden="true"
+      hidden
+    >
+      <div id="blowup-panel-header" class="blowup-panel-header">
+        <h2 id="blowup-title">Details</h2>
+      </div>
+
+      <div id="blowup-content" class="blowup-content">
+        <p>Select an item from the folder tree to view details.</p>
+      </div>
+    </aside>
   </main>
 
   <nav class="floating-nav">
